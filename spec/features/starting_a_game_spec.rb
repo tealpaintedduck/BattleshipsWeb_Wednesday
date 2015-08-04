@@ -1,9 +1,16 @@
 require 'spec_helper'
 
-feature 'Starting a new game' do 
-  scenario 'I am asked to enter my name' do 
+feature 'Starting a new game' do
+  scenario 'I am asked to enter my name' do
     visit '/'
     click_link 'New Game'
-    expect(page).to have_content "What's your name?"
+    expect(page).to have_field("name")
+  end
+
+  scenario 'When I enter my name, I am taken to the game page' do
+    visit '/new_game'
+    fill_in('name', with: 'twat')
+    click_button('Submit')
+    expect(page).to have_content("Let the games begin!")
   end
 end
