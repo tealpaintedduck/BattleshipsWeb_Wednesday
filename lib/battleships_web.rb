@@ -21,6 +21,10 @@ class BattleshipsWeb < Sinatra::Base
     erb :set_up
   end
 
+  get '/game_page' do
+    erb :game_page
+  end
+
   set :views, proc { File.join(root, '..', 'views') }
 
   # start the server if ruby file executed directly
