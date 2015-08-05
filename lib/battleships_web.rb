@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'battleships'
 
 class BattleshipsWeb < Sinatra::Base
   get '/' do
@@ -9,9 +10,15 @@ class BattleshipsWeb < Sinatra::Base
     erb :new_game
   end
 
-  get '/game_page' do
+  get '/set_up' do
     @name = params[:name]
-    erb :game_page
+    game = Game.new(Player,Board)
+    game.player_1.place_ship Ship.battleship, :B4, :vertically
+    game.player_1.place_ship Ship.destroyer, :C4, :vertically
+    game.player_1.place_ship Ship.submarine, :D4, :vertically
+    game.player_1.place_ship Ship.cruiser, :E4, :vertically
+    game.player_1.place_ship Ship.aircraft_carrier, :F4, :vertically
+    erb :set_up
   end
 
   set :views, proc { File.join(root, '..', 'views') }

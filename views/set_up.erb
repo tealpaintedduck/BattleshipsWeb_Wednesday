@@ -1,0 +1,45 @@
+<% if @name.length > 0 %>
+  <h1>Let the games begin!</h1>
+  <h2>Please place your ships.</h2>
+  <form>
+  Destroyer
+  <input type = "text" name = "destroyer_coordinate">
+  <select name = "destroyer_orientation">
+    <option value = "horizontally">Horizontal</option>
+    <option value = "vertically">Vertical</option>
+  </select>
+  <br />
+  Battleship
+  <input type = "text" name = "battleship_coordinate">
+  <select name = "battleship_orientation">
+    <option value = "horizontally">Horizontal</option>
+    <option value = "vertically">Vertical</option>
+  </select>
+  <br />
+  Cruiser
+  <input type = "text" name = "cruiser_coordinate">
+  <select name = "cruiser_orientation">
+    <option value = "horizontally">Horizontal</option>
+    <option value = "vertically">Vertical</option>
+  </select>
+  <br />
+  Submarine
+  <input type = "text" name = "submarine_coordinate">
+  <select name = "submarine_orientation">
+    <option value = "horizontally">Horizontal</option>
+    <option value = "vertically">Vertical</option>
+  </select>
+  <br />
+  Aircraft Carrier
+  <input type = "text" name = "aircraft_carrier_coordinate">
+  <select name = "aircraft_carrier_orientation">
+    <option value = "horizontally">Horizontal</option>
+    <option value = "vertically">Vertical</option>
+  </select>
+  <br />
+  <input type = "submit" value = "Submit">
+  </form>
+<% else %>
+  <h1>You need a name!</h1>
+  <a href='/new_game'>Would you like to try again?</a>
+<% end %>

@@ -20,4 +20,11 @@ feature 'Starting a new game' do
     expect(page).to have_content("You need a name!")
   end
 
+  scenario 'When I start a game, I am asked to place ships' do
+    visit '/new_game'
+    fill_in('name', with: 'whateva')
+    click_button('Submit')
+    expect(page).to have_content("Please place your ships.")
+  end
+
 end
