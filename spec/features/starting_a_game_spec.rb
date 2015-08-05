@@ -41,4 +41,11 @@ feature 'Starting a new game' do
     expect(page).to have_content("Here's your board!")
   end
 
+  scenario 'I actually have a board' do
+    visit 'new_game'
+    fill_in('name', with: 'whateva')
+    click_button('Submit')
+    expect($game.player_1.board).not_to be nil
+  end
+
 end

@@ -12,12 +12,12 @@ class BattleshipsWeb < Sinatra::Base
 
   get '/set_up' do
     @name = params[:name]
-    game = Game.new(Player,Board)
-    game.player_1.place_ship Ship.battleship, :B4, :vertically
-    game.player_1.place_ship Ship.destroyer, :C4, :vertically
-    game.player_1.place_ship Ship.submarine, :D4, :vertically
-    game.player_1.place_ship Ship.cruiser, :E4, :vertically
-    game.player_1.place_ship Ship.aircraft_carrier, :F4, :vertically
+    $game = Game.new(Player,Board)
+    $game.player_1.place_ship Ship.battleship, :B4, :vertically
+    $game.player_1.place_ship Ship.destroyer, :C4, :vertically
+    $game.player_1.place_ship Ship.submarine, :D4, :vertically
+    $game.player_1.place_ship Ship.cruiser, :E4, :vertically
+    $game.player_1.place_ship Ship.aircraft_carrier, :F4, :vertically
     erb :set_up
   end
 
